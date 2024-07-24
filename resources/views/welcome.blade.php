@@ -28,7 +28,7 @@
 
         <main class="pt-16">
             <section class="relative h-screen w-full bg-cover bg-center"
-                style="background-image: url('{{ asset('images/background.avif') }}');">
+                style="background-image: url('{{ asset('images/background.jpg') }}');">
                 <div class="absolute inset-0 bg-black opacity-60"></div>
                 <div class="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
                     <img src="{{ asset('images/logo.jpg') }}" alt="NAHS Learning Logo" class="mb-4 h-24 w-auto">
@@ -51,7 +51,7 @@
                         <!-- Course Card 1 -->
                         <div
                             class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-700">
-                            <img class="h-48 w-full object-cover" src="{{ asset('images/course1.avif') }}"
+                            <img class="h-48 w-full object-cover" src="{{ asset('images/course1.png') }}"
                                 alt="Course Image">
                             <div class="px-6 py-4">
                                 <div class="mb-2 text-xl font-bold text-purple-500 dark:text-purple-400">Accounting
@@ -64,7 +64,7 @@
                         <!-- Course Card 2 -->
                         <div
                             class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-700">
-                            <img class="h-48 w-full object-cover" src="{{ asset('images/course2.avif') }}"
+                            <img class="h-48 w-full object-cover" src="{{ asset('images/course2.png') }}"
                                 alt="Course Image">
                             <div class="px-6 py-4">
                                 <div class="mb-2 text-xl font-bold text-purple-500 dark:text-purple-400">Business
@@ -77,7 +77,7 @@
                         <!-- Course Card 3 -->
                         <div
                             class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-700">
-                            <img class="h-48 w-full object-cover" src="{{ asset('images/course3.avif') }}"
+                            <img class="h-48 w-full object-cover" src="{{ asset('images/course3.png') }}"
                                 alt="Course Image">
                             <div class="px-6 py-4">
                                 <div class="mb-2 text-xl font-bold text-purple-500 dark:text-purple-400">Economics</div>
@@ -97,7 +97,7 @@
                     <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <!-- Testimonial 1 -->
                         <div class="mx-auto max-w-sm">
-                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person1.avif') }}"
+                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person1.jpg') }}"
                                 alt="Person Image">
                             <p class="mt-4 text-center italic text-gray-800 dark:text-gray-300">"NAHS Learning has
                                 transformed my understanding of commerce subjects. The teachers are amazing!"</p>
@@ -105,7 +105,7 @@
                         </div>
                         <!-- Testimonial 2 -->
                         <div class="mx-auto max-w-sm">
-                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person2.jpg') }}"
+                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person2.png') }}"
                                 alt="Person Image">
                             <p class="mt-4 text-center italic text-gray-800 dark:text-gray-300">"I achieved excellent
                                 grades thanks to the support from NAHS Learning."</p>
@@ -113,7 +113,7 @@
                         </div>
                         <!-- Testimonial 3 -->
                         <div class="mx-auto max-w-sm">
-                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person3.jpg') }}"
+                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person3.png') }}"
                                 alt="Person Image">
                             <p class="mt-4 text-center italic text-gray-800 dark:text-gray-300">"The learning
                                 environment is superb and very supportive."</p>
