@@ -76,14 +76,14 @@
                         <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                             {{ __('Home') }}
                         </x-nav-link>
-                        <x-nav-link href="#">
-                            {{ __('Timetable') }}
+                        <x-nav-link href="#our-courses">
+                            {{ __('Our Courses') }}
                         </x-nav-link>
-                        <x-nav-link href="#">
-                            {{ __('Downloads') }}
+                        <x-nav-link href="#testimonials">
+                            {{ __('Testimonials') }}
                         </x-nav-link>
-                        <x-nav-link href="#">
-                            {{ __('Contact') }}
+                        <x-nav-link href="#socials">
+                            {{ __('Socials') }}
                         </x-nav-link>
                     @endauth
                 </div>
@@ -217,14 +217,14 @@
                 <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#">
-                    {{ __('Timetable') }}
+                <x-responsive-nav-link href="#our-courses">
+                    {{ __('Our Courses') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#">
-                    {{ __('Downloads') }}
+                <x-responsive-nav-link href="#testimonials">
+                    {{ __('Testimonials') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#">
-                    {{ __('Contact') }}
+                <x-responsive-nav-link href="#socials">
+                    {{ __('Socials') }}
                 </x-responsive-nav-link>
             @endauth
         </div>
