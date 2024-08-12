@@ -2,11 +2,11 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                {{ __('Users Management') }}
+                {{ __('Courses Management') }}
             </h2>
-            <a href="{{ route('admin.users.create') }}"
+            <a href="{{ route('admin.courses.create') }}"
                 class="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-gray-900">
-                {{ __('Create New User') }}
+                {{ __('Create New Course') }}
             </a>
         </div>
     </x-slot>
@@ -31,30 +31,34 @@
                             <tr>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Name</th>
+                                    Course Code</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Email</th>
+                                    Course Name</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Role</th>
+                                    Description</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                    Stream</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     Actions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
-                            @foreach ($users as $user)
+                            @foreach ($courses as $course)
                                 <tr>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $user->name }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $user->email }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4 capitalize">{{ $user->role }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $course->course_code }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $course->course_name }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $course->description }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $course->stream }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        <a href="{{ route('admin.users.edit', $user) }}"
+                                        <a href="{{ route('admin.courses.edit', $course) }}"
                                             class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-indigo-700">
                                             {{ __('Edit') }}
                                         </a>
-                                        <form action="{{ route('admin.users.destroy', $user) }}" method="POST"
+                                        <form action="{{ route('admin.courses.destroy', $course) }}" method="POST"
                                             class="inline-block">
                                             @csrf
                                             @method('DELETE')
@@ -73,5 +77,3 @@
         </div>
     </div>
 </x-app-layout>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">

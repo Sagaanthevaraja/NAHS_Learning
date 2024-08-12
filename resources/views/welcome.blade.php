@@ -21,14 +21,14 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-100">
         <div class="fixed left-0 right-0 top-0 z-50">
             @include('layouts.navigation')
         </div>
 
         <main class="pt-16">
             <section class="relative h-screen w-full bg-cover bg-center"
-                style="background-image: url('{{ asset('images/background.jpg') }}');">
+                style="background-image: url('{{ asset('images/background.avif') }}');">
                 <div class="absolute inset-0 bg-black opacity-60"></div>
                 <div class="relative z-10 flex h-full flex-col items-center justify-center text-center text-white">
                     <img src="{{ asset('images/logo.jpg') }}" alt="NAHS Learning Logo" class="mb-4 h-24 w-auto">
@@ -44,88 +44,88 @@
                 </div>
             </section>
 
-            <section id="our-courses" class="bg-white py-16 dark:bg-gray-800">
+            <section id="our-courses" class="bg-white py-16">
                 <div class="container mx-auto px-4">
-                    <h2 class="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-white">Our Courses</h2>
+                    <h2 class="mb-12 text-center text-4xl font-extrabold text-gray-900">Our Courses</h2>
                     <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <!-- Course Card 1 -->
                         <div
-                            class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-700">
-                            <img class="h-48 w-full object-cover" src="{{ asset('images/course1.png') }}"
+                            class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105">
+                            <img class="h-48 w-full object-cover" src="{{ asset('images/course1.avif') }}"
                                 alt="Course Image">
                             <div class="px-6 py-4">
-                                <div class="mb-2 text-xl font-bold text-purple-500 dark:text-purple-400">Accounting
+                                <div class="mb-2 text-xl font-bold text-purple-500">Accounting
                                 </div>
-                                <p class="text-base text-gray-800 dark:text-gray-300">Grade: 10</p>
-                                <p class="text-base text-gray-800 dark:text-gray-300">O/L Year: 2024</p>
-                                <p class="text-base text-gray-800 dark:text-gray-300">Syllabus: Local</p>
+                                <p class="text-base text-gray-800">Grade: 10</p>
+                                <p class="text-base text-gray-800">O/L Year: 2024</p>
+                                <p class="text-base text-gray-800">Syllabus: Local</p>
                             </div>
                         </div>
                         <!-- Course Card 2 -->
                         <div
-                            class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-700">
-                            <img class="h-48 w-full object-cover" src="{{ asset('images/course2.png') }}"
+                            class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105">
+                            <img class="h-48 w-full object-cover" src="{{ asset('images/course2.avif') }}"
                                 alt="Course Image">
                             <div class="px-6 py-4">
-                                <div class="mb-2 text-xl font-bold text-purple-500 dark:text-purple-400">Business
+                                <div class="mb-2 text-xl font-bold text-purple-500">Business
                                     Studies</div>
-                                <p class="text-base text-gray-800 dark:text-gray-300">Grade: 11</p>
-                                <p class="text-base text-gray-800 dark:text-gray-300">O/L Year: 2023</p>
-                                <p class="text-base text-gray-800 dark:text-gray-300">Syllabus: Cambridge</p>
+                                <p class="text-base text-gray-800">Grade: 11</p>
+                                <p class="text-base text-gray-800">O/L Year: 2023</p>
+                                <p class="text-base text-gray-800">Syllabus: Cambridge</p>
                             </div>
                         </div>
                         <!-- Course Card 3 -->
                         <div
-                            class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-700">
-                            <img class="h-48 w-full object-cover" src="{{ asset('images/course3.png') }}"
+                            class="max-w-sm transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform hover:scale-105">
+                            <img class="h-48 w-full object-cover" src="{{ asset('images/course3.avif') }}"
                                 alt="Course Image">
                             <div class="px-6 py-4">
-                                <div class="mb-2 text-xl font-bold text-purple-500 dark:text-purple-400">Economics</div>
-                                <p class="text-base text-gray-800 dark:text-gray-300">Grade: 9</p>
-                                <p class="text-base text-gray-800 dark:text-gray-300">O/L Year: 2025</p>
-                                <p class="text-base text-gray-800 dark:text-gray-300">Syllabus: Edexcel</p>
+                                <div class="mb-2 text-xl font-bold text-purple-500">Economics</div>
+                                <p class="text-base text-gray-800">Grade: 9</p>
+                                <p class="text-base text-gray-800">O/L Year: 2025</p>
+                                <p class="text-base text-gray-800">Syllabus: Edexcel</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="testimonials" class="bg-gray-100 py-16 dark:bg-gray-900">
+            <section id="testimonials" class="bg-gray-100 py-16">
                 <div class="container mx-auto px-4">
-                    <h2 class="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-white">Testimonials
+                    <h2 class="mb-12 text-center text-4xl font-extrabold text-gray-900">Testimonials
                     </h2>
                     <div class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <!-- Testimonial 1 -->
                         <div class="mx-auto max-w-sm">
-                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person1.jpg') }}"
+                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person1.avif') }}"
                                 alt="Person Image">
-                            <p class="mt-4 text-center italic text-gray-800 dark:text-gray-300">"NAHS Learning has
+                            <p class="mt-4 text-center italic text-gray-800">"NAHS Learning has
                                 transformed my understanding of commerce subjects. The teachers are amazing!"</p>
-                            <p class="mt-2 text-center text-gray-800 dark:text-gray-300">- John Doe, 2021</p>
+                            <p class="mt-2 text-center text-gray-800">- John Doe, 2021</p>
                         </div>
                         <!-- Testimonial 2 -->
                         <div class="mx-auto max-w-sm">
-                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person2.png') }}"
+                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person2.jpg') }}"
                                 alt="Person Image">
-                            <p class="mt-4 text-center italic text-gray-800 dark:text-gray-300">"I achieved excellent
+                            <p class="mt-4 text-center italic text-gray-800">"I achieved excellent
                                 grades thanks to the support from NAHS Learning."</p>
-                            <p class="mt-2 text-center text-gray-800 dark:text-gray-300">- Jane Smith, 2020</p>
+                            <p class="mt-2 text-center text-gray-800">- Jane Smith, 2020</p>
                         </div>
                         <!-- Testimonial 3 -->
                         <div class="mx-auto max-w-sm">
-                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person3.png') }}"
+                            <img class="mx-auto h-24 w-24 rounded-full" src="{{ asset('images/person3.jpg') }}"
                                 alt="Person Image">
-                            <p class="mt-4 text-center italic text-gray-800 dark:text-gray-300">"The learning
+                            <p class="mt-4 text-center italic text-gray-800">"The learning
                                 environment is superb and very supportive."</p>
-                            <p class="mt-2 text-center text-gray-800 dark:text-gray-300">- Robert Brown, 2019</p>
+                            <p class="mt-2 text-center text-gray-800">- Robert Brown, 2019</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="socials" class="bg-white py-16 dark:bg-gray-800">
+            <section id="socials" class="bg-white py-16">
                 <div class="container mx-auto px-4">
-                    <h2 class="mb-12 text-center text-4xl font-extrabold text-gray-900 dark:text-white">Follow Us</h2>
+                    <h2 class="mb-12 text-center text-4xl font-extrabold text-gray-900">Follow Us</h2>
                     <div class="flex justify-center space-x-8">
                         <!-- Facebook -->
                         <a href="https://facebook.com"

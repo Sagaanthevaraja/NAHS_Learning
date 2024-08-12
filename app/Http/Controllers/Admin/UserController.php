@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Student;
+use App\Models\Lecturer;
+use App\Models\Parents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,12 +32,27 @@ class UserController extends Controller
             'role' => 'required|string',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
+
+        if ($user->role === 'student') {
+            Student::create([
+                'user_id' => $user->id,
+                'status' => 'active',
+            ]);
+        } elseif ($user->role === 'lecturer') {
+            Lecturer::create([
+                'user_id' => $user->id,
+            ]);
+        } elseif ($user->role === 'parents') {
+            Parents::create([
+                'user_id' => $user->id,
+            ]);
+        }
 
         return redirect()->route('admin.users.index')->with('success', 'User created successfully.');
     }
