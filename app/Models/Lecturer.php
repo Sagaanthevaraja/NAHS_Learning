@@ -12,4 +12,14 @@ class Lecturer extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function course()
+    {
+        return $this->hasOne(Course::class);
+    }
+
+    public function meetings()
+    {
+        return $this->hasMany(Meeting::class, 'lecturer_id');
+    }
 }

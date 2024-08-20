@@ -14,5 +14,14 @@ class Course extends Model
         'course_name',
         'description',
         'stream',
+        'lecturer_id',
     ];
+
+    /**
+     * Get the lecturer that teaches the course.
+     */
+    public function lecturer()
+    {
+        return $this->belongsTo(Lecturer::class);
+    }
 }

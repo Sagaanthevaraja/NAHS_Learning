@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'role' => 'lecturer',
         ]);
-        Lecturer::create([
+        $lecturer = Lecturer::create([
             'user_id' => $lecturerUser->id,
         ]);
 
@@ -55,25 +55,32 @@ class DatabaseSeeder extends Seeder
             'user_id' => $parentUser->id,
         ]);
 
-        Course::create([
-            'course_code' => 'ACC101',
-            'course_name' => 'Accounting',
-            'description' => 'Introduction to Accounting',
-            'stream' => 'Commerce',
-        ]);
+        $courses = [
+            [
+                'course_code' => 'ACC101',
+                'course_name' => 'Accounting',
+                'description' => 'Introduction to Accounting',
+                'stream' => 'Commerce',
+                'lecturer_id' => $lecturer->id,
+            ],
+            [
+                'course_code' => 'BUS102',
+                'course_name' => 'Business Studies',
+                'description' => 'Fundamentals of Business Studies',
+                'stream' => 'Commerce',
+                'lecturer_id' => $lecturer->id,
+            ],
+            [
+                'course_code' => 'ECO103',
+                'course_name' => 'Economics',
+                'description' => 'Principles of Economics',
+                'stream' => 'Commerce',
+                'lecturer_id' => $lecturer->id,
+            ],
+        ];
 
-        Course::create([
-            'course_code' => 'BUS102',
-            'course_name' => 'Business Studies',
-            'description' => 'Fundamentals of Business Studies',
-            'stream' => 'Commerce',
-        ]);
-
-        Course::create([
-            'course_code' => 'ECO103',
-            'course_name' => 'Economics',
-            'description' => 'Principles of Economics',
-            'stream' => 'Commerce',
-        ]);
+        foreach ($courses as $courseData) {
+            Course::create($courseData);
+        }
     }
 }

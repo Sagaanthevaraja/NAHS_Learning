@@ -23,7 +23,7 @@
                             <x-nav-link :href="route('admin.courses.index')" :active="request()->routeIs('admin.courses.index')">
                                 {{ __('Courses') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('admin.meetings.indexAdmin')" :active="request()->routeIs('admin.meetings.indexAdmin')">
                                 {{ __('Meetings') }}
                             </x-nav-link>
                             <x-nav-link :href="route('admin.students.index')" :active="request()->routeIs('admin.students.index')">
@@ -42,7 +42,7 @@
                             <x-nav-link href="#">
                                 {{ __('Students') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('lecturer.schedule')" :active="request()->routeIs('lecturer.schedule')">
                                 {{ __('Schedule') }}
                             </x-nav-link>
                         @elseif(Auth::user()->role == 'student')
@@ -52,7 +52,7 @@
                             <x-nav-link href="#">
                                 {{ __('My Courses') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('student.timetable')" :active="request()->routeIs('student.timetable')">
                                 {{ __('Timetable') }}
                             </x-nav-link>
                             <x-nav-link href="#">
@@ -68,7 +68,7 @@
                             <x-nav-link href="#">
                                 {{ __('Child\'s Courses') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('parent.meetings.indexParent')" :active="request()->routeIs('parent.meetings.indexParent')">
                                 {{ __('Meetings') }}
                             </x-nav-link>
                         @endif
@@ -164,7 +164,7 @@
                     <x-responsive-nav-link :href="route('admin.courses.index')" :active="request()->routeIs('admin.courses.index')">
                         {{ __('Courses') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('admin.meetings.indexAdmin')" :active="request()->routeIs('admin.meetings.indexAdmin')">
                         {{ __('Meetings') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('admin.students.index')" :active="request()->routeIs('admin.students.index')">
@@ -183,7 +183,7 @@
                     <x-responsive-nav-link href="#">
                         {{ __('Students') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('lecturer.schedule')" :active="request()->routeIs('lecturer.schedule')">
                         {{ __('Schedule') }}
                     </x-responsive-nav-link>
                 @elseif(Auth::user()->role == 'student')
@@ -193,7 +193,7 @@
                     <x-responsive-nav-link href="#">
                         {{ __('My Courses') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('student.timetable')" :active="request()->routeIs('student.timetable')">
                         {{ __('Timetable') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
@@ -209,7 +209,7 @@
                     <x-responsive-nav-link href="#">
                         {{ __('Child\'s Courses') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('parent.meetings.indexParent')" :active="request()->routeIs('parent.meetings.indexParent')">
                         {{ __('Meetings') }}
                     </x-responsive-nav-link>
                 @endif

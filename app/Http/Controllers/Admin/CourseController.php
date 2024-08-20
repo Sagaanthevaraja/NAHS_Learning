@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Lecturer;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -13,7 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::with('lecturer.user')->get();
+
         return view('admin.courses.index', compact('courses'));
     }
 
@@ -22,7 +24,10 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('admin.courses.create');
+        // Fetch all lecturers to allow assignment to a course
+        $lecturers = Lecturer::with('user')->get();
+
+        return view('admin.courses.create', compact('lecturers'));
     }
 
     /**
@@ -35,6 +40,7 @@ class CourseController extends Controller
             'course_name' => 'required|string|max:255',
             'description' => 'required|string',
             'stream' => 'required|string|max:255',
+            'lecturer_id' => 'required|exists:lecturers,id',
         ]);
 
         Course::create($request->all());
@@ -49,7 +55,9 @@ class CourseController extends Controller
     public function edit(string $id)
     {
         $course = Course::findOrFail($id);
-        return view('admin.courses.edit', compact('course'));
+        $lecturers = Lecturer::with('user')->get(); // Fetch all lecturers to allow reassignment
+
+        return view('admin.courses.edit', compact('course', 'lecturers'));
     }
 
     /**
@@ -62,6 +70,7 @@ class CourseController extends Controller
             'course_name' => 'required|string|max:255',
             'description' => 'required|string',
             'stream' => 'required|string|max:255',
+            'lecturer_id' => 'required|exists:lecturers,id',
         ]);
 
         $course = Course::findOrFail($id);

@@ -44,6 +44,20 @@
                             </select>
                         </div>
 
+                        <div class="mb-4">
+                            <x-input-label for="lecturer_id" :value="__('Lecturer')" />
+                            <select id="lecturer_id" name="lecturer_id"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                                required>
+                                @foreach ($lecturers as $lecturer)
+                                    <option value="{{ $lecturer->id }}"
+                                        {{ $course->lecturer_id == $lecturer->id ? 'selected' : '' }}>
+                                        {{ $lecturer->user->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="mt-4 flex items-center justify-end">
                             <x-primary-button class="ml-4">
                                 {{ __('Update') }}

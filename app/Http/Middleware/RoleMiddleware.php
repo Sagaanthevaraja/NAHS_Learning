@@ -39,10 +39,17 @@ class RoleMiddleware
                 'admin.students.edit',
                 'admin.students.update',
                 'admin.students.destroy',
+                'admin.meetings.indexAdmin',
+                'admin.meetings.approve',
+                'admin.meetings.reject',
             ],
-            'student' => ['student.dashboard'],
-            'lecturer' => ['lecturer.dashboard'],
-            'parent' => ['parent.dashboard'],
+            'student' => ['student.dashboard', 'student.timetable'],
+            'lecturer' => ['lecturer.dashboard', 'lecturer.schedule'],
+            'parent' => ['parent.dashboard',
+                'parent.meetings.indexParent',
+                'parent.meetings.create',
+                'parent.meetings.store',
+            ],
         ];
 
         $currentRouteName = $request->route()->getName();
