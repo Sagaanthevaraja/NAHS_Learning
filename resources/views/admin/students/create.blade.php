@@ -13,6 +13,18 @@
                         @csrf
 
                         <div class="mb-4">
+                            <x-input-label for="course_id" :value="__('Course')" />
+                            <div>
+                                @foreach ($courses as $course)
+                                    <div class="flex items-center mb-2">
+                                        <input type="radio" id="course_{{ $course->id }}" name="course_id" value="{{ $course->id }}" {{ old('course_id') == $course->id ? 'checked' : '' }}>
+                                        <label class="ml-2" for="course_{{ $course->id }}">{{ $course->course_name }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
                             <x-input-label for="name" :value="__('Name')" />
                             <x-text-input id="name" class="mt-1 block w-full" type="text" name="name"
                                 :value="old('name')" required autofocus />

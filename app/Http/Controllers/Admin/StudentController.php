@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,14 +18,16 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('admin.students.create');
+        $courses = Course::all();
+        return view('admin.students.create', compact('courses'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
+            'course_id' => 'required|exists:courses,id',
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
@@ -37,6 +40,7 @@ class StudentController extends Controller
 
         Student::create([
             'user_id' => $user->id,
+            'course_id' => $request->course_id,
             'status' => 'active',
         ]);
 
@@ -50,12 +54,14 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
-        return view('admin.students.edit', compact('student'));
+        $courses = Course::all();
+        return view('admin.students.edit', compact('student', 'courses'));
     }
 
     public function update(Request $request, Student $student)
     {
         $request->validate([
+            'course_id' => 'required|exists:courses,id',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $student->user->id,
             'password' => 'nullable|string|min:8|confirmed',
@@ -64,7 +70,7 @@ class StudentController extends Controller
         $student->user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password ? bcrypt($request->password) : $student->user->password,
+            'password' => $request->password ? bcrypt($request->password) : null,
         ]);
 
         return redirect()->route('admin.students.index')->with('success', 'Student updated successfully.');

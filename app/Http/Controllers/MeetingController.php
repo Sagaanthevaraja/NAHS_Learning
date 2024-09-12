@@ -27,6 +27,7 @@ class MeetingController extends Controller
             'lecturer_id' => 'required|exists:lecturers,id',
             'date' => 'required|date',
             'time' => 'required',
+            'reason' => 'required',
         ]);
 
         // Retrieve the parent_id from the Parents table where user_id matches the authenticated user's id
@@ -43,6 +44,7 @@ class MeetingController extends Controller
             'date' => $request->input('date'),
             'time' => $request->input('time'),
             'status' => 'pending',
+            'reason' => $request->input('reason'),
         ]);
 
         // Redirect back to the meetings index with a success message

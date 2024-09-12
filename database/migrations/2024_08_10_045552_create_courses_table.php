@@ -18,8 +18,8 @@ class CreateCoursesTable extends Migration
             $table->string('course_code')->unique();
             $table->string('course_name');
             $table->text('description');
-            $table->string('stream');
             $table->foreignId('lecturer_id')->constrained()->onDelete('cascade');
+            $table->string('stream');
             $table->timestamps();
         });
     }

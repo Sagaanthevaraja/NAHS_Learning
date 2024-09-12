@@ -15,11 +15,21 @@ class Lecturer extends Model
 
     public function course()
     {
-        return $this->hasOne(Course::class);
+        return $this->hasMany(Course::class);
     }
 
     public function meetings()
     {
         return $this->hasMany(Meeting::class, 'lecturer_id');
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(ScheduleCourse::class);
+    }
+
+    public function Student()
+    {
+        return $this->hasMany(Student::class);
     }
 }

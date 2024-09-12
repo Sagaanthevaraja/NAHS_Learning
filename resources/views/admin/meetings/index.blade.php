@@ -39,6 +39,9 @@
                                     Time</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                    Reason</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     Status</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
@@ -52,6 +55,7 @@
                                     <td class="whitespace-nowrap px-6 py-4">{{ $meeting->lecturer->user->name }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $meeting->date }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $meeting->time }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4 capitalize">{{ $meeting->reason }}</td>
                                     <td class="whitespace-nowrap px-6 py-4 capitalize">{{ $meeting->status }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">
                                         @if ($meeting->status == 'pending')
@@ -64,18 +68,25 @@
                                                     {{ __('Approve') }}
                                                 </button>
                                             </form>
-                                            <form action="{{ route('admin.meetings.reject', $meeting) }}" method="POST"
-                                                class="inline-block">
+                                            <form action="{{ route('admin.meetings.reject', $meeting) }}"
+                                                method="POST" class="inline-block">
                                                 @csrf
                                                 @method('PATCH')
+                                                <input type="text" name="reason"
+                                                    placeholder="Enter rejection reason"
+                                                    class="w-1rem p-2 mb-2 border rounded">
                                                 <button type="submit"
                                                     class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:bg-red-700">
                                                     {{ __('Reject') }}
                                                 </button>
                                             </form>
+                                        @elseif ($meeting->status == 'rejected')
+                                            <span
+                                                class="px-4 py-2 bg-red-400 rounded-xl text-xs font-semibold uppercase">Reason
+                                                Updated With Admin Response</span>
                                         @else
                                             <span
-                                                class="px-4 py-2 text-xs font-semibold uppercase">{{ ucfirst($meeting->status) }}</span>
+                                                class="px-4 py-2 bg-green-400 rounded-xl text-xs font-semibold uppercase">Meeting Scheduled</span>
                                         @endif
                                     </td>
                                 </tr>

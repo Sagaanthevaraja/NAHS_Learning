@@ -24,16 +24,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
 
-        $studentUser = User::factory()->create([
-            'name' => 'Student User',
-            'email' => 'student@gmail.com',
-            'password' => bcrypt('password'),
-            'role' => 'student',
-        ]);
-        Student::create([
-            'user_id' => $studentUser->id,
-            'status' => 'active',
-        ]);
+       
 
         $lecturerUser = User::factory()->create([
             'name' => 'Lecturer User',
@@ -44,6 +35,8 @@ class DatabaseSeeder extends Seeder
         $lecturer = Lecturer::create([
             'user_id' => $lecturerUser->id,
         ]);
+
+        
 
         $parentUser = User::factory()->create([
             'name' => 'Parent User',
@@ -82,5 +75,19 @@ class DatabaseSeeder extends Seeder
         foreach ($courses as $courseData) {
             Course::create($courseData);
         }
+
+        $studentUser = User::factory()->create([
+            'name' => 'Student User',
+            'email' => 'student@gmail.com',
+            'password' => bcrypt('password'),
+            'role' => 'student',
+        ]);
+        Student::create([
+            'user_id' => $studentUser->id,
+            'course_id' => 1,
+            'lecturer_id' => 1,
+            'status' => 'active',
+        ]);
+        
     }
 }

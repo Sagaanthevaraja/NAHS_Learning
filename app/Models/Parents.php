@@ -17,4 +17,9 @@ class Parents extends Model
     {
         return $this->hasMany(Meeting::class, 'parent_id');
     }
+
+    public function student()
+    {
+        return $this->hasMany(Student::class);
+    }
 }

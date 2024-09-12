@@ -12,4 +12,20 @@ class Student extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function lecturer()
+    {
+        return $this->belongsTo(Lecturer::class);
+    }
+
+    public function parents()
+    {
+        return $this->belongsTo(Parents::class);
+    }
+
 }

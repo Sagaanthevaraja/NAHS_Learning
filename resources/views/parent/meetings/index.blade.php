@@ -40,7 +40,13 @@
                                     Time</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                    Reason</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     Status</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                    Action</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
@@ -49,7 +55,19 @@
                                     <td class="whitespace-nowrap px-6 py-4">{{ $meeting->lecturer->user->name }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $meeting->date }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $meeting->time }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ $meeting->reason }}</td>
                                     <td class="whitespace-nowrap px-6 py-4 capitalize">{{ $meeting->status }}</td>
+                                    <td>
+                                        @if ($meeting->status == 'rejected')
+                                            <span
+                                                class="px-4 py-2 bg-red-400 rounded-xl text-xs font-semibold uppercase">Reason
+                                                Updated With Admin Response</span>
+                                        @else
+                                            <span
+                                                class="px-4 py-2 bg-green-400 rounded-xl text-xs font-semibold uppercase">Meeting
+                                                Scheduled</span>
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

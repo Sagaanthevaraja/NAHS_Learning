@@ -29,20 +29,17 @@
                             <x-nav-link :href="route('admin.students.index')" :active="request()->routeIs('admin.students.index')">
                                 {{ __('Students') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
-                                {{ __('Settings') }}
-                            </x-nav-link>
                         @elseif(Auth::user()->role == 'lecturer')
                             <x-nav-link :href="route('lecturer.dashboard')" :active="request()->routeIs('lecturer.dashboard')">
                                 {{ __('Dashboard') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('lecturer.course')" :active="request()->routeIs('lecturer.course')">
                                 {{ __('Courses') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('lecturer.students')" :active="request()->routeIs('lecturer.students')">
                                 {{ __('Students') }}
                             </x-nav-link>
-                            <x-nav-link :href="route('lecturer.schedule')" :active="request()->routeIs('lecturer.schedule')">
+                            <x-nav-link :href="route('lecturer.schedules.index')" :active="request()->routeIs('lecturer.schedules.index')">
                                 {{ __('Schedule') }}
                             </x-nav-link>
                         @elseif(Auth::user()->role == 'student')
@@ -56,10 +53,10 @@
                                 {{ __('Timetable') }}
                             </x-nav-link>
                             <x-nav-link href="#">
-                                {{ __('Grades') }}
-                            </x-nav-link>
-                            <x-nav-link href="#">
                                 {{ __('Attendance') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('student.resources')" :active="request()->routeIs('student.resources')">
+                                {{ __('Resources') }}
                             </x-nav-link>
                         @elseif(Auth::user()->role == 'parent')
                             <x-nav-link :href="route('parent.dashboard')" :active="request()->routeIs('parent.dashboard')">
@@ -170,20 +167,17 @@
                     <x-responsive-nav-link :href="route('admin.students.index')" :active="request()->routeIs('admin.students.index')">
                         {{ __('Students') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
-                        {{ __('Settings') }}
-                    </x-responsive-nav-link>
                 @elseif(Auth::user()->role == 'lecturer')
                     <x-responsive-nav-link :href="route('lecturer.dashboard')" :active="request()->routeIs('lecturer.dashboard')">
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('lecturer.course')" :active="request()->routeIs('lecturer.course')">
                         {{ __('Courses') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('lecturer.students')" :active="request()->routeIs('lecturer.students')">
                         {{ __('Students') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('lecturer.schedule')" :active="request()->routeIs('lecturer.schedule')">
+                    <x-responsive-nav-link :href="route('lecturer.schedules.index')" :active="request()->routeIs('lecturer.schedules.index')">
                         {{ __('Schedule') }}
                     </x-responsive-nav-link>
                 @elseif(Auth::user()->role == 'student')
@@ -197,10 +191,10 @@
                         {{ __('Timetable') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
-                        {{ __('Grades') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
                         {{ __('Attendance') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link  :href="route('student.resources')" :active="request()->routeIs('student.resources')">
+                        {{ __('Resources') }}
                     </x-responsive-nav-link>
                 @elseif(Auth::user()->role == 'parent')
                     <x-responsive-nav-link :href="route('parent.dashboard')" :active="request()->routeIs('parent.dashboard')">

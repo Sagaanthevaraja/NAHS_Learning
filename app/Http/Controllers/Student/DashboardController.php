@@ -13,4 +13,9 @@ class DashboardController extends Controller
     {
         return view('student.dashboard');
     }
+
+    public function joinQuiz(Request $request)
+    {
+        return redirect()->to('http://localhost:8080')->with('success', 'Quiz application started successfully!');
+    }
 }
