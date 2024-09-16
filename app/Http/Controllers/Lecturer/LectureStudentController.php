@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Lecturer;
 
 use App\Http\Controllers\Controller;
@@ -12,11 +11,10 @@ class LectureStudentController extends Controller
 {
     public function index()
     {
-        $course = Course::where('lecturer_id', auth()->user()->lecturer->id)
-            ->first();
+        $lecturer = Lecturer::where('user_id', auth()->user()->id)->first();
+        $course = Course::where('lecturer_id', $lecturer->id)->first();
+        $students = Student::where('course_id', $course->id)->get();
 
-        $students = Student::where('course_id', $course->id)
-            ->get();
         return view('lecturer.students.index', compact('students'));
     }
 }

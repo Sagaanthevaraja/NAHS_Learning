@@ -11,9 +11,11 @@ use App\Http\Controllers\Student\TImetableController;
 use App\Http\Controllers\Lecturer\DashboardController as LecturerDashboardController;
 use App\Http\Controllers\Lecturer\ScheduleController;
 use App\Http\Controllers\Lecturer\LecCoursesController;
-use App\Http\Controllers\Lecturer\LectureStudentController; 
+use App\Http\Controllers\Lecturer\LectureStudentController;
+use App\Http\Controllers\Lecturer\AttendanceController;
+use App\Http\Controllers\Lecturer\ResourceController;
 use App\Http\Controllers\Parent\DashboardController as ParentDashboardController;
-use App\Http\Controllers\MeetingController; 
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\Student\StudentResourseController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +49,11 @@ Route::middleware(['auth', 'role'])->prefix('lecturer')->name('lecturer.')->grou
     Route::get('/dashboard', [LecturerDashboardController::class, 'index'])->name('dashboard');
     Route::get('/courses', [LecCoursesController::class, 'index'])->name('course');
     Route::get('/students', [LectureStudentController::class, 'index'])->name('students');
+    Route::resource('/resources', ResourceController::class);
     Route::resource('schedules', ScheduleController::class);
+    Route::resource('attendance', AttendanceController::class)->only(['index', 'show']);
+    Route::get('attendance/{course}/mark', [AttendanceController::class, 'mark'])->name('attendance.mark');
+    Route::post('attendance/{course}/mark', [AttendanceController::class, 'store'])->name('attendance.store');
     Route::get('/start-quiz', [LecturerDashboardController::class, 'startQuiz'])->name('start-quiz');
 });
 
@@ -56,6 +62,7 @@ Route::middleware(['auth', 'role'])->prefix('student')->name('student.')->group(
     Route::get('/timetable', [TImetableController::class, 'index'])->name('timetable');
     Route::get('/resources', [StudentResourseController::class, 'index'])->name('resources');
     Route::get('/join-quiz', [StudentDashboardController::class, 'joinQuiz'])->name('join-quiz');
+    Route::get('/attendance', [App\Http\Controllers\Student\AttendanceController::class, 'index'])->name('attendance.index');
 });
 
 Route::middleware(['auth', 'role'])->prefix('parent')->name('parent.')->group(function () {

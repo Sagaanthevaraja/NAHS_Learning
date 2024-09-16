@@ -2,8 +2,12 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                {{ __('Download Your Lecture Resources') }}
+                {{ __('Resources') }}
             </h2>
+            <a href="{{ route('lecturer.resources.create') }}"
+                class="inline-flex items-center rounded-md border border-transparent bg-gray-800 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-gray-900">
+                {{ __('Upload New Resource') }}
+            </a>
         </div>
     </x-slot>
 
@@ -26,6 +30,10 @@
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     File
                                 </th>
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                    Actions
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
@@ -42,6 +50,17 @@
                                             class="text-blue-500 hover:underline">
                                             View PDF
                                         </a>
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 py-4">
+                                        <form action="{{ route('lecturer.resources.destroy', $resource) }}"
+                                            method="POST" class="inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white transition duration-150 ease-in-out hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:bg-red-700">
+                                                {{ __('Delete') }}
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

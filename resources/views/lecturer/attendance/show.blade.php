@@ -2,8 +2,12 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                {{ __('Download Your Lecture Resources') }}
+                {{ __('Attendance for ') . $course->course_name }}
             </h2>
+            <a href="{{ route('lecturer.attendance.mark', $course->id) }}"
+                class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700">
+                {{ __('Mark New Attendance') }}
+            </a>
         </div>
     </x-slot>
 
@@ -16,31 +20,27 @@
                             <tr>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Title
+                                    Date
                                 </th>
                                 <th scope="col"
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Course
-                                </th>
-                                <th scope="col"
-                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    File
+                                    Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
-                            @foreach ($resources as $resource)
+                            @foreach ($attendances as $attendance)
                                 <tr class="{{ $loop->odd ? 'bg-gray-50' : '' }}">
                                     <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                                        {{ $resource->title }}
+                                        {{ $attendance->created_at->format('d/m/Y') }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                                        {{ $resource->course->course_name }}
-                                    </td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                                        <a href="{{ asset('storage/' . $resource->file) }}" target="_blank"
+                                        <a href="{{ route('lecturer.attendance.mark', $course->id) }}"
                                             class="text-blue-500 hover:underline">
-                                            View PDF
+                                            {{ __('Mark New Attendance') }}
+                                        </a>
+                                        <a href="#" class="ml-4 text-yellow-500 hover:underline">
+                                            {{ __('Edit Attendance') }}
                                         </a>
                                     </td>
                                 </tr>
@@ -48,10 +48,9 @@
                         </tbody>
                     </table>
 
-                    @if ($resources->isEmpty())
-                        <p class="mt-4 text-sm text-gray-500">No resources uploaded yet.</p>
+                    @if ($attendances->isEmpty())
+                        <p class="mt-4 text-sm text-gray-500">No attendance records yet.</p>
                     @endif
-
                 </div>
             </div>
         </div>

@@ -47,7 +47,8 @@ class RoleMiddleware
                 'student.dashboard',
                 'student.timetable',
                 'student.join-quiz',
-                'student.resources'
+                'student.resources',
+                'student.attendance.index',
             ],
             'lecturer' => [
                 'lecturer.dashboard',
@@ -59,7 +60,17 @@ class RoleMiddleware
                 'lecturer.schedules.edit',
                 'lecturer.schedules.update',
                 'lecturer.students',
-                'lecturer.start-quiz'
+                'lecturer.start-quiz',
+                'lecturer.resources.index',
+                'lecturer.resources.create',
+                'lecturer.resources.store',
+                'lecturer.resources.edit',
+                'lecturer.resources.update',
+                'lecturer.resources.destroy',
+                'lecturer.attendance.index',
+                'lecturer.attendance.show',
+                'lecturer.attendance.mark',
+                'lecturer.attendance.store',
             ],
             'parent' => [
                 'parent.dashboard',
