@@ -42,6 +42,7 @@ class RoleMiddleware
                 'admin.meetings.indexAdmin',
                 'admin.meetings.approve',
                 'admin.meetings.reject',
+                'admin.payments.index',
             ],
             'student' => [
                 'student.dashboard',
@@ -49,6 +50,9 @@ class RoleMiddleware
                 'student.join-quiz',
                 'student.resources',
                 'student.attendance.index',
+                'student.payments.index',
+                'student.payments.create',
+                'student.payments.store',
             ],
             'lecturer' => [
                 'lecturer.dashboard',
@@ -77,6 +81,7 @@ class RoleMiddleware
                 'parent.meetings.indexParent',
                 'parent.meetings.create',
                 'parent.meetings.store',
+                'parent.courses.index',
             ],
         ];
 

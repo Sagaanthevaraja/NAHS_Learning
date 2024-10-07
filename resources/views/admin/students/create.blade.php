@@ -16,9 +16,12 @@
                             <x-input-label for="course_id" :value="__('Course')" />
                             <div>
                                 @foreach ($courses as $course)
-                                    <div class="flex items-center mb-2">
-                                        <input type="radio" id="course_{{ $course->id }}" name="course_id" value="{{ $course->id }}" {{ old('course_id') == $course->id ? 'checked' : '' }}>
-                                        <label class="ml-2" for="course_{{ $course->id }}">{{ $course->course_name }}</label>
+                                    <div class="mb-2 flex items-center">
+                                        <input type="radio" id="course_{{ $course->id }}" name="course_id"
+                                            value="{{ $course->id }}"
+                                            {{ old('course_id') == $course->id ? 'checked' : '' }}>
+                                        <label class="ml-2"
+                                            for="course_{{ $course->id }}">{{ $course->course_name }}</label>
                                     </div>
                                 @endforeach
                             </div>
@@ -46,6 +49,15 @@
                             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
                             <x-text-input id="password_confirmation" class="mt-1 block w-full" type="password"
                                 name="password_confirmation" required />
+                        </div>
+
+                        <div class="mb-4">
+                            <x-input-label for="status" :value="__('Status')" />
+                            <select id="status" name="status" class="mt-1 block w-full">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="terminated">Terminated</option>
+                            </select>
                         </div>
 
                         <div class="mt-4 flex items-center justify-end">

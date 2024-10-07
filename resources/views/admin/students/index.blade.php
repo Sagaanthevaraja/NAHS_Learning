@@ -31,24 +31,19 @@
                             <tr>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Name
-                                </th>
+                                    Name</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Email
-                                </th>
+                                    Email</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Status
-                                </th>
+                                    Status</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Course
-                                </th>
+                                    Course</th>
                                 <th
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                    Actions
-                                </th>
+                                    Actions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
@@ -56,7 +51,7 @@
                                 <tr>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $student->user->name }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $student->user->email }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $student->status }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{ ucfirst($student->status) }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{ $student->course->course_name }}</td>
                                     <td class="whitespace-nowrap px-6 py-4">
                                         <a href="{{ route('admin.students.show', $student) }}"

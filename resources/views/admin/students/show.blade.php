@@ -11,7 +11,8 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-medium text-gray-900">Name: {{ $student->user->name }}</h3>
                     <p class="text-gray-600">Email: {{ $student->user->email }}</p>
-                    <p class="text-gray-600">Status: {{ $student->status }}</p>
+                    <p class="text-gray-600">Status: {{ ucfirst($student->status) }}</p>
+                    <p class="text-gray-600">Course: {{ $student->course->course_name }}</p>
                 </div>
             </div>
         </div>

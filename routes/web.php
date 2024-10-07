@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Parent\CourseController as ParentCoursesController;
 use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 use App\Http\Controllers\Student\TImetableController;
@@ -39,6 +40,8 @@ Route::middleware(['auth', 'role'])->prefix('admin')->name('admin.')->group(func
     Route::resource('courses', CourseController::class)->except(['show']);
     Route::resource('students', StudentController::class);
 
+    Route::get('payments', [App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('payments.index');
+
     // Admin meeting routes
     Route::get('meetings', [MeetingController::class, 'indexAdmin'])->name('meetings.indexAdmin');
     Route::patch('meetings/{meeting}/approve', [MeetingController::class, 'approve'])->name('meetings.approve');
@@ -63,10 +66,13 @@ Route::middleware(['auth', 'role'])->prefix('student')->name('student.')->group(
     Route::get('/resources', [StudentResourseController::class, 'index'])->name('resources');
     Route::get('/join-quiz', [StudentDashboardController::class, 'joinQuiz'])->name('join-quiz');
     Route::get('/attendance', [App\Http\Controllers\Student\AttendanceController::class, 'index'])->name('attendance.index');
+    Route::resource('payments', App\Http\Controllers\Student\PaymentController::class);
 });
 
 Route::middleware(['auth', 'role'])->prefix('parent')->name('parent.')->group(function () {
     Route::get('/dashboard', [ParentDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [ParentDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/courses', [ParentCoursesController::class, 'index'])->name('courses.index');
 
     Route::get('meetings', [MeetingController::class, 'indexParent'])->name('meetings.indexParent');
     Route::get('meetings/create', [MeetingController::class, 'create'])->name('meetings.create');

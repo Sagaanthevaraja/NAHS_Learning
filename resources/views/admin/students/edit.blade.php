@@ -39,12 +39,25 @@
 
                         <div class="mb-4">
                             <x-input-label for="course_id" :value="__('Course')" />
-                            <select id="course_id" name="course_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <select id="course_id" name="course_id" class="mt-1 block w-full">
                                 @foreach ($courses as $course)
-                                    <option value="{{ $course->id }}" {{ $student->course_id == $course->id ? 'selected' : '' }}>
+                                    <option value="{{ $course->id }}"
+                                        {{ $student->course_id == $course->id ? 'selected' : '' }}>
                                         {{ $course->course_name }} ({{ $course->course_code }})
                                     </option>
                                 @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <x-input-label for="status" :value="__('Status')" />
+                            <select id="status" name="status" class="mt-1 block w-full">
+                                <option value="active" {{ $student->status == 'active' ? 'selected' : '' }}>Active
+                                </option>
+                                <option value="inactive" {{ $student->status == 'inactive' ? 'selected' : '' }}>Inactive
+                                </option>
+                                <option value="terminated" {{ $student->status == 'terminated' ? 'selected' : '' }}>
+                                    Terminated</option>
                             </select>
                         </div>
 
