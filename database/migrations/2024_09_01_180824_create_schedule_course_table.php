@@ -19,6 +19,8 @@ return new class extends Migration
             $table->dateTime('end_time');
             $table->string('day');
             $table->string('location');
+            $table->string('reason')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

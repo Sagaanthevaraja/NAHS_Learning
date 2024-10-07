@@ -16,6 +16,8 @@ class ScheduleCourse extends Model
         'end_time',
         'day',
         'location',
+        'status',
+        'reason',
     ];
 
     public function course()

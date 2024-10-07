@@ -33,7 +33,7 @@
                             <label for="start_time"
                                 class="block text-sm font-medium text-gray-700">{{ __('Start Time') }}</label>
                             <input type="time" name="start_time" id="start_time"
-                                value="{{ $scheduleCourse->start_time }}"
+                                value="{{ \Carbon\Carbon::parse($scheduleCourse->start_time)->format('H:i') }}"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                         </div>
 
@@ -41,7 +41,8 @@
                         <div class="mt-4">
                             <label for="end_time"
                                 class="block text-sm font-medium text-gray-700">{{ __('End Time') }}</label>
-                            <input type="time" name="end_time" id="end_time" value="{{ $scheduleCourse->end_time }}"
+                            <input type="time" name="end_time" id="end_time"
+                                value="{{ \Carbon\Carbon::parse($scheduleCourse->end_time)->format('H:i') }}"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
                         </div>
 

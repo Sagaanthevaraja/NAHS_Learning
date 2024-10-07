@@ -46,6 +46,10 @@ Route::middleware(['auth', 'role'])->prefix('admin')->name('admin.')->group(func
     Route::get('meetings', [MeetingController::class, 'indexAdmin'])->name('meetings.indexAdmin');
     Route::patch('meetings/{meeting}/approve', [MeetingController::class, 'approve'])->name('meetings.approve');
     Route::patch('meetings/{meeting}/reject', [MeetingController::class, 'reject'])->name('meetings.reject');
+
+    Route::get('schedules', [App\Http\Controllers\Admin\ScheduleController::class, 'index'])->name('schedules.index');
+    Route::patch('schedules/{schedule}/approve', [App\Http\Controllers\Admin\ScheduleController::class, 'approve'])->name('schedules.approve');
+    Route::patch('schedules/{schedule}/reject', [App\Http\Controllers\Admin\ScheduleController::class, 'reject'])->name('schedules.reject');
 });
 
 Route::middleware(['auth', 'role'])->prefix('lecturer')->name('lecturer.')->group(function () {

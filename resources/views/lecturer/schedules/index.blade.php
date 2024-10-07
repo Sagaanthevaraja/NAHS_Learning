@@ -50,23 +50,31 @@
                                     class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                     Location
                                 </th>
-
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
                             @foreach ($schedules as $schedule)
                                 <tr class="{{ $loop->odd ? 'bg-gray-50' : '' }}">
                                     <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
-                                        Accounting</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">{{ $schedule['day'] }}
+                                        {{ $schedule->course->course_name }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">{{ $schedule->day }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                                        {{ $schedule['start_time'] }}</td>
+                                        {{ \Carbon\Carbon::parse($schedule->start_time)->format('H:i') }}
+                                    </td>
                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                                        {{ $schedule['end_time'] }}</td>
+                                        {{ \Carbon\Carbon::parse($schedule->end_time)->format('H:i') }}
+                                    </td>
                                     <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
-                                        {{ $schedule['location'] }}</td>
-
+                                        {{ $schedule->location }}
+                                    </td>
                                 </tr>
                             @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>
